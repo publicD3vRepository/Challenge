@@ -20,7 +20,6 @@ public class NewsAdapter extends BaseAdapter {
     private Activity activity;
     private ArrayList<HashMap<String, String>> data;
     private static LayoutInflater inflater = null;
-    public ImageLoader imageLoader;
     private ViewHolder holder;
     public ImageFileLoader imageFileLoader;
 

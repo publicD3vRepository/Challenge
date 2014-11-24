@@ -47,12 +47,11 @@ public class DB {
         if (mDBHelper!=null) mDBHelper.close();
     }
 
-    // получить все данные из таблицы DB_TABLE
     public Cursor getAllData() {
         return mDB.query(DB_TABLE, null, null, null, null, null, null);
     }
 
-    // добавить запись в DB_TABLE
+
     public void addRec(String txt, String img) {
         ContentValues cv = new ContentValues();
         cv.put(COLUMN_TXT, txt);
@@ -60,8 +59,8 @@ public class DB {
         mDB.insert(DB_TABLE, null, cv);
     }
 
-    // удалить записи
-    public void delRec() {
+
+    public void delCache() {
         mDB.delete(DB_TABLE, null, null);
     }
 

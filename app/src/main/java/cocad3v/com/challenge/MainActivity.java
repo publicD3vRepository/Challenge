@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 public class MainActivity extends Activity {
 
-    final String LOG_TAG = "myLogs";
+    final String LOG_TAG = "dLogs";
     private static final String NEWS_URL = "http://api.innogest.ru/api/v3/amobile/news";
 
     public static final String TAG_NID = "nid";
@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
         if (c.moveToFirst())
         {
             NewsList = new ArrayList<HashMap<String, String>>();
-            Log.d(LOG_TAG, "LOAD FROM CACHE");
+            Log.d(LOG_TAG, "Load from cache");
             int titleColIndex = c.getColumnIndex("title");
             int imgColIndex = c.getColumnIndex("img");
             do {
@@ -75,7 +75,7 @@ public class MainActivity extends Activity {
         }
         else
         {
-            Log.d(LOG_TAG, "0 rows will AsynkLoad");
+            Log.d(LOG_TAG, "Load from web");
             c.close();
             task = new LoadNews().execute();
         }
@@ -84,7 +84,7 @@ public class MainActivity extends Activity {
 
 
     public void onClearCache(View v) {
-        db.delRec();
+        db.delCache();
     }
 
     @Override
@@ -151,7 +151,7 @@ public class MainActivity extends Activity {
                     e.printStackTrace();
                 }
             } else {
-                Log.e("ServiceHandler", "No Data");
+                Log.e("ServiceHandler", "No Data exist");
             }
 
             return null;
@@ -164,7 +164,6 @@ public class MainActivity extends Activity {
             MainActivity.this.runOnUiThread(new Runnable() {
                 public void run() {
                     newsAdapter = new NewsAdapter(MainActivity.this, NewsList,MODE_WEB);
-
                     lv.setAdapter(newsAdapter);
 
                 }

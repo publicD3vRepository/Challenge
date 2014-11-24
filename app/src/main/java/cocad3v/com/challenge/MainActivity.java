@@ -94,6 +94,7 @@ public class MainActivity extends Activity {
         if(task != null && task.getStatus() != AsyncTask.Status.FINISHED) {
             task.cancel(true);
         }
+        db.close();
     }
 
 

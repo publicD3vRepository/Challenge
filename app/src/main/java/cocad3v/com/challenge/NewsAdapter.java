@@ -68,10 +68,7 @@ public class NewsAdapter extends BaseAdapter {
         h = data.get(position);
 
         holder.title.setText(h.get(MainActivity.TAG_TITLE));
-      //  new ImageLoader().execute(holder.img, h.get(MainActivity.TAG_IMG_URL));
        imageFileLoader.DisplayImage(h.get(MainActivity.TAG_IMG_URL), holder.img);
-      //  Bitmap bm = imageFileLoader.getBitmap(h.get(MainActivity.TAG_IMG_URL));
-       // holder.img.setImageBitmap(bm);
         return vi;
     }
 
